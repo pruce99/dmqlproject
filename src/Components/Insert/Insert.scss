@@ -1,0 +1,35 @@
+.Insert-container {
+  .Input-container {
+    input {
+      border-radius: 25px;
+      padding: 10px;
+      font-size: 18px;
+      width: 25%;
+      margin-top: 25px;
+    }
+  }
+  .Button-container {
+    margin-top: 20px;
+    button {
+      width: 10%;
+      border-radius: 25px;
+      font-size: 17px;
+      padding: 7px;
+    }
+  }
+  .Dropdown-Container {
+    margin-top: 35px;
+    margin-left: 9px;
+    margin-bottom: 10px;
+    select {
+      background-color: #262626;
+      color: white;
+      padding: 10px;
+      font-weight: 500;
+      font-size: 15px;
+      width: 385px;
+      border: #373737 solid;
+      border-radius: 25px;
+    }
+  }
+}

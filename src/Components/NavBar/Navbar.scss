@@ -1,0 +1,28 @@
+.Navbar-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  color: white;
+  .Navbar-header {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    height: 20%;
+    &:hover {
+      background-color: black;
+      color: white;
+      cursor: default;
+    }
+  }
+  div {
+    cursor: pointer;
+    background-color: rgb(0, 52, 97);
+    padding: 10px 35px;
+    align-self: center;
+    &:hover {
+      background-color: rgb(48, 77, 102);
+      color: white;
+    }
+  }
+}
