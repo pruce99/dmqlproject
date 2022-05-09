@@ -19,21 +19,30 @@ export default function Insert() {
 
   const handleClick = async () => {
     if (switchState === "AC") {
+      let flag = false;
       if (acAircraftCode.length > 3) {
         alert("Aircraft code length greater than 3");
+        flag = true;
       }
       // else if()
 
       //axios call
-      await axios
-        .post("http://localhost:8080/updateData/get/", {
-          AircraftCode: acAircraftCode,
-          Model: model,
-          Range: range,
-        })
-        .then((response) => {
-          console.log(response);
-        });
+      if (flag === false) {
+        await axios
+          .post("http://localhost:8080/insertModel/data/", {
+            AircraftCode: acAircraftCode,
+            Model: model,
+            Range: range,
+          })
+          .then((response) => {
+            if (response.data === "done") {
+              setACaircraftCode("");
+              setModel("");
+              setRange("");
+              alert("Done");
+            }
+          });
+      }
     } else if (switchState === "Seat") {
       let flag = false;
       if (seatAircraftCode.length < 3) {
@@ -49,7 +58,12 @@ export default function Insert() {
             FairCondition: fairCondition,
           })
           .then((response) => {
-            console.log(response);
+            if (response.data === "done") {
+              setSeataircraftCode("");
+              setSeatNumber("");
+              setfairCondition("Business");
+              alert("Done");
+            }
           });
       }
     }
@@ -64,6 +78,7 @@ export default function Insert() {
             <div className="Input-container">
               <input
                 onChange={(e) => setACaircraftCode(e.target.value)}
+                value={acAircraftCode}
                 type="text"
                 placeholder="Aircraft Code (***)"
               />
@@ -71,6 +86,7 @@ export default function Insert() {
             <div className="Input-container">
               <input
                 onChange={(e) => setModel(e.target.value)}
+                value={model}
                 type="text"
                 placeholder="Model"
               />
@@ -78,6 +94,7 @@ export default function Insert() {
             <div className="Input-container">
               <input
                 onChange={(e) => setRange(e.target.value)}
+                value={range}
                 type="text"
                 placeholder="Range"
               />
@@ -93,6 +110,7 @@ export default function Insert() {
             <div className="Input-container">
               <input
                 onChange={(e) => setSeataircraftCode(e.target.value)}
+                value={seatAircraftCode}
                 type="text"
                 placeholder="Aircraft Code (***)"
               />
@@ -101,6 +119,7 @@ export default function Insert() {
               <input
                 onChange={(e) => setSeatNumber(e.target.value)}
                 type="text"
+                value={seatNumber}
                 placeholder="Seat Number"
               />
             </div>
@@ -128,7 +147,11 @@ export default function Insert() {
 
   return (
     <div>
-      <ToggleSwitch setSwitchState={setSwitchState} />
+      <ToggleSwitch
+        type1={"Aircraft Code"}
+        type2={"Seat"}
+        setSwitchState={setSwitchState}
+      />
       <div className="Insert-container">{renderSwitch(switchState)}</div>
     </div>
   );

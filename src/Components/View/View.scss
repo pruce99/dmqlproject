@@ -1,7 +1,7 @@
 .View-container {
-    display: flex;
+  display: flex;
   .Left-container {
-      width: 50%;
+    width: 25%;
     text-align: left;
     margin-left: 21px;
     .Input-container {
@@ -9,23 +9,33 @@
         border-radius: 25px;
         padding: 10px;
         font-size: 18px;
-        width: 50%;
+        width: 85%;
         margin-top: 25px;
       }
     }
     .Button-container {
       margin-top: 20px;
       button {
-        width: 15%;
+        width: 25%;
         border-radius: 25px;
         font-size: 17px;
         padding: 7px;
       }
     }
   }
-  .Right-container{
-      text-align: center;
-      width: 50%;
-      margin-top: 20px;
+  .Right-container {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    .Table-container {
+      text-align: -webkit-center;
+      margin-right: 10px;
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+      }
+    }
   }
 }
